@@ -1,0 +1,30 @@
+<div *ngIf="isAuth" class="row justify-content-center">
+	<div class="col-sm-5">
+		<h1 class="text-center mb-3">{{'user.account.update.label'|translate}}</h1>
+		<form [formGroup]="form" (ngSubmit)="onSubmit()">
+			<app-text-input label="user.email.label" field="email" [form]="form"></app-text-input>
+			<app-text-input label="user.name.label" field="name" [form]="form"></app-text-input>
+			<div class="img-upload">
+				<div class="input-group mb-3">
+					<div class="custom-file">
+						<input
+								type="file"
+								class="custom-file-input"
+								(change)="detectFiles($event)"
+								accept="image/*"
+								id="picture"
+						>
+						<label class="custom-file-label font-weight-bold" for="picture">{{ 'user.avatar.label' | translate }}</label>
+					</div>
+				</div>
+				<img *ngIf="fileUrl" class="upload-preview" [src]="fileUrl"/>
+			</div>
+			<button class="btn btn-success btn-lg btn-block" type="submit" [disabled]="form.invalid || isLoading">
+				{{ 'button.update.label' | translate }}
+			</button>
+		</form>
+		<div *ngIf="errorMessage" class="mt-2 alert alert alert-danger" role="alert">
+			{{ errorMessage }}
+		</div>
+	</div>
+</div>

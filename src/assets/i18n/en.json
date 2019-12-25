@@ -1,0 +1,23 @@
+{
+    "form.error.required": "Field is required",
+    "form.error.email": "Field must contain a valid e-mail address",
+    "form.error.pattern": "Field must contain at least 6 characters",
+    "user.email.label": "Email",
+    "user.name.label": "Name",
+    "user.avatar.label": "Avatar",
+    "user.password.label": "Password",
+    "user.account.create.label": "Create your account",
+    "user.account.update.label": "Update your account",
+    "user.signin.label": "Sign in",
+    "button.create.label": "Create",
+    "button.update.label": "Update",
+    "header.links.home": "Home",
+    "header.links.add-tip": "Add tip",
+    "header.links.account": "Profile",
+    "header.links.signOut": "Sign Out",
+    "tip.property.content": "Content",
+    "tip.property.title": "Title",
+    "tip.property.description": "Description",
+    "preview.label": "Preview",
+    "tip.property.tags": "Tags"
+}

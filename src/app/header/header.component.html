@@ -1,0 +1,41 @@
+<nav class="navbar navbar-dark navbar-expand-lg bg-dark">
+	<a class="navbar-brand" routerLink="home">Tips</a>
+	<div class="collapse navbar-collapse">
+		<ul class="navbar-nav mr-auto">
+			<li class="nav-item">
+				<a class="nav-link" routerLink="home" routerLinkActive="active">
+					{{'header.links.home'|translate}}
+				</a>
+			</li>
+			<li *ngIf="authService.isAuthenticated()" class="nav-item">
+				<a class="nav-link" routerLink="tips/new" routerLinkActive="active">
+					{{'header.links.add-tip'|translate}}
+				</a>
+			</li>
+		</ul>
+		<ul class="navbar-nav">
+<!--			<li class="ml-2 nav-item" routerLinkActive="active" *ngIf="!isAuth">-->
+<!--				<a class="nav-link" routerLink="auth/signup">Sign up</a>-->
+<!--			</li>-->
+			<li class="ml-2 nav-item" routerLinkActive="active" *ngIf="!isAuth">
+				<a class="nav-link" routerLink="auth/signin">Sign in</a>
+			</li>
+			<li *ngIf="isAuth" class="nav-item dropdown dropleft">
+				<a href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true"
+				   aria-expanded="false">
+					<img class="header-avatar" [src]="userAvatarPath()" alt="Avatar">
+				</a>
+				<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+					<h6 class="dropdown-header">{{username()}}</h6>
+					<div class="dropdown-divider"></div>
+					<a class="dropdown-item" routerLink="user/profile" routerLinkActive="active">
+						{{ 'header.links.account'|translate }}
+					</a>
+					<a class="dropdown-item" (click)="onSignOut()">
+						{{ 'header.links.signOut'|translate }}
+					</a>
+				</div>
+			</li>
+		</ul>
+	</div>
+</nav>
