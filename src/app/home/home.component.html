@@ -1,0 +1,19 @@
+<div class="mt-2">
+	<div class="form-inline search">
+		<input type="text" class="form-control mr-sm-2" placeholder="Search">
+		<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+	</div>
+
+	<div class="card-deck mt-2">
+		<div class="card" *ngFor="let tip of tips">
+			<h5 class="card-header">{{ tip.title }}</h5>
+			<div class="card-body">
+				<p class="card-text">{{ tip.description }}</p>
+				<button type="button" class="btn btn-danger" *ngIf="authService.isAuthenticated()"
+						(click)="tipsService.removeTip(tip)">
+					Remove
+				</button>
+			</div>
+		</div>
+	</div>
+</div>

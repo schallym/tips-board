@@ -1,0 +1,15 @@
+<div class="row justify-content-center">
+	<div class="col-sm-5">
+		<h1 class="text-center mb-3">{{'user.signin.label' | translate}}</h1>
+		<form [formGroup]="form" (ngSubmit)="onSubmit()">
+			<app-text-input label="user.email.label" field="email" [form]="form"></app-text-input>
+			<app-password-input label="user.password.label" field="password" [form]="form"></app-password-input>
+			<button class="btn btn-success btn-lg btn-block" type="submit" [disabled]="form.invalid">
+				{{ 'user.signin.label' | translate }}
+			</button>
+		</form>
+		<div *ngIf="errorMessage" class="mt-2 alert alert alert-danger" role="alert">
+			{{ errorMessage }}
+		</div>
+	</div>
+</div>

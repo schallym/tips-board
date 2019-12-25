@@ -1,0 +1,44 @@
+<div class="row">
+	<div class="col">
+		<div class="row justify-content-center">
+			<h1 class="justify-content-center">Tips creation</h1>
+		</div>
+
+		<form [formGroup]="form" (ngSubmit)="onSubmit()">
+			<div class="form-group w-50">
+				<app-text-input label="tip.property.title" [form]="form" field="title"></app-text-input>
+			</div>
+			<div class="form-group w-50">
+				<app-text-input label="tip.property.tags" [form]="form" field="tags"></app-text-input>
+			</div>
+			<div class="form-group  w-50">
+				<app-textarea-input label="tip.property.description" [form]="form" field="description"></app-textarea-input>
+			</div>
+
+			<label for="content" class="font-weight-bold">{{ 'tip.property.content' | translate }}</label>
+			<div class="card-deck">
+				<div class="card">
+					<div class="card-header">Mardkdown</div>
+					<div class="card-body">
+						<div class="form-group">
+						<textarea class="form-control" id="content" formControlName="content" [(ngModel)]="content"
+								  rows="20"></textarea>
+						</div>
+					</div>
+				</div>
+				<div class="card">
+					<div class="card-header">{{ 'preview.label' | translate }}</div>
+					<div class="card-body">
+						<div class="form-group preview">
+							<ngx-md class="preview" [data]="content">
+							</ngx-md>
+						</div>
+					</div>
+				</div>
+			</div>
+			<button class="btn btn-success btn-lg mt-2" type="submit" [disabled]="form.invalid">
+				{{ 'button.create.label' | translate }}
+			</button>
+		</form>
+	</div>
+</div>
